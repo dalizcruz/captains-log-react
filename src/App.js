@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Logs from './Components/Logs';
+import Home from './Components/Home';
 
 import NavBar from "./Components/NavBar";
 
@@ -29,11 +31,11 @@ function App() {
   return (
     <div>
       <Router>
-      <NavBar logs={logs} />
+      <NavBar />
       <main>
-        <p>Captain's Log</p>
         <Switch>
-          <Route path="/logs/:index" />
+          <Route exact path="/" component={Home}  />
+          <Route path="/logs/:index" component={Logs}  logs={logs}/>
           {/* <Route exact path="/logs" />
         <Route path="/logs/new"/> */}
         </Switch>
